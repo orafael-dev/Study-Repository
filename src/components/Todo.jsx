@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
+import { useTodos } from "../../TodosContext";
 import "./Todo.scss";
-import { useContext } from "react";
-import { TodosContext } from "../../TodosContext.js";
+
 
 function Todo({ todo }) {
-  const store = useContext(TodosContext);
+  const store = useTodos();
 
   return (
     <>
