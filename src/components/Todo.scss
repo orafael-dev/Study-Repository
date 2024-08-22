@@ -1,0 +1,98 @@
+.todo {
+   
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white-color);
+    color: var(--black-color);
+    padding: 25px;
+    border-radius: 12px;
+    position: relative;
+    -webkit-box-shadow: -2px 3px 29px -10px rgba(0,0,0,0.6);
+    -moz-box-shadow: -2px 3px 29px -10px rgba(0,0,0,0.6);
+    box-shadow: -2px 3px 29px -10px rgba(0,0,0,0.6);
+    max-width: 650px;
+    margin-bottom: 20px;
+
+    &.done :is(h3, p) {
+        text-decoration: line-through;
+    }
+
+    button.erase {
+        background-color: transparent;
+        position: absolute;
+        right: 8px;
+        top: 5px;
+        font-size: 12px;
+        color: red;
+        cursor: pointer;
+        display: none;
+    }
+
+    &:hover {
+        button.erase {
+            display: block;
+        }
+    }
+
+    h3 {
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    p {
+        margin-top: 18px;
+        margin-bottom: 12px;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 16px;
+        letter-spacing: 0em;
+        text-align: left;
+    }
+
+    .task-check {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-top: 18px;
+
+        label {
+            font-size: 13px;
+            font-weight: 400;
+            line-height: 16px;
+            letter-spacing: 0em;
+            text-align: left;
+            margin-left: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 100%;
+            border: 0.77px solid #AEAEB2;
+            appearance: none;
+            cursor: pointer;
+
+            &:checked {
+                background-color: #0A7AFF;
+                border-color: #0A7AFF;
+
+                &::before {
+                    content: '';
+                    display: block;
+                    width: 4.5px;
+                    height: 9px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                }
+            }
+        }
+    }
+}

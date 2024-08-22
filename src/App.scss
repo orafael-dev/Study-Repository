@@ -1,0 +1,41 @@
+.container {
+    max-width: 1080px;
+    margin-inline: auto;
+    padding-inline: 1rem;
+}
+
+.btn {
+    border-radius: 8px;
+    height: 48px;
+    padding-inline: 18px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0em;
+    text-align: left;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.primary {
+        background-color: var(--primary-color);
+        color: var(--white-color);
+    }
+    
+    &.secondary {
+        background-color: var(--secondary-color);
+        color: var(--white-color);
+    }
+    
+    &.gray {
+        background-color: var(--gray-color);
+        color: var(--black-color);
+    }
+}
+
+.close-btn {
+    width: 14px;
+    height: 14px;
+}

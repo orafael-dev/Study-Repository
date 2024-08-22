@@ -1,0 +1,74 @@
+// *******************************
+// Global Styles
+// *******************************
+
+:root {
+    --primary-color: #2d41a7;
+    --secondary-color: #0b1d78;
+    --gray-color: #e4e4e4;
+    --white-color: #ffffff;
+    --black-color: #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  margin: 0;
+  font-family: "DM Sans", sans-serif;
+}
+
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--white-color);
+  color: var(--black-color);
+  height: 100%;
+  padding: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+
+
+
+
+

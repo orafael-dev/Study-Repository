@@ -1,0 +1,30 @@
+.header {
+
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 60px 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header-side {
+        display: flex;
+        align-items: center;
+
+        h1 {
+            text-transform: capitalize;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 47px;
+            letter-spacing: 0em;
+            text-align: left;
+        }
+
+        .secondary {
+            margin-left: 12px;
+        }
+    }
+}
