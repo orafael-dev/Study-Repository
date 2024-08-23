@@ -1,7 +1,10 @@
+import { useTodos } from '../../TodosContext';
 import './Header.scss';
 
 function Header({ appName }) {
-
+    
+    const store = useTodos()
+    
     return (
       <>
         <div className="header">
@@ -12,7 +15,9 @@ function Header({ appName }) {
                     </h1>
                 </div>
                 <div className="header-side">
-                    <button className="btn secondary">+ Add Task</button>
+                    <button 
+                    onClick={() => store.setModalIsActive(true)}
+                    className="btn secondary">+ Add Task</button>
                 </div>
             </div>
         </div>

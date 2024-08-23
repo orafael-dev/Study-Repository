@@ -7,11 +7,15 @@ function TodosList() {
   return (
     <>
       <div className="todos">
-        {store.todos.map((todo) => (
+        {store.filteredTodos().length ? store.filteredTodos().map((todo) => (
           <Todo 
           key={todo.id} 
           todo={todo} />
-        ))}
+          
+        ))
+        : 'Nenhum To Do para ser visualizado. Tente alternar os filtros ou adicionar uma nova tarefa.'
+        
+        }
       </div>
     </>
   );
