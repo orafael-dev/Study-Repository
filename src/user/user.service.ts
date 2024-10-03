@@ -23,9 +23,9 @@ export class UserService {
   }
 
   async showById(id: number) {
-    if (!(await this.showById(id))) {
-      throw new NotFoundException(`O usuário com o id: ${id} não existe.`);
-    }
+
+    await this.exists(id)
+
     return this.prisma.user.findUnique({
       where: {
         id,
@@ -34,9 +34,9 @@ export class UserService {
   }
 
   async update(id: number, { name, email, password, birthAt }: UptadePutUserDTO) {
-    if (!(await this.showById(id))) {
-      throw new NotFoundException(`O usuário com o id: ${id} não existe.`);
-    }
+
+    await this.exists(id)
+
     return this.prisma.user.update({
       data: { name, email, password, birthAt: birthAt ? new Date(birthAt) : null },
       where: {
@@ -48,9 +48,7 @@ export class UserService {
   async updatePartial(id: number, { name, email, password, birthAt }: UptadePatchUserDTO) {
     const data: any = {};
 
-    if (!(await this.showById(id))) {
-      throw new NotFoundException(`O usuário com o id: ${id} não existe.`);
-    }
+    await this.exists(id)
 
     if (birthAt) {
       data.birthAt = new Date(birthAt);
@@ -85,4 +83,16 @@ export class UserService {
       },
     });
   }
+
+  async exists(id: number) {
+    if(!(await this.prisma.user.count({
+        where: {
+            id
+        }
+    }))) {
+        throw new NotFoundException(`O usuário ${id} não existe`)
+    }
+  }
+
+
 }

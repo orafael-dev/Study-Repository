@@ -1,8 +1,9 @@
-import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, Put, UseInterceptors } from '@nestjs/common';
 import { CreateUserDTO } from './dto/create-user.dto';
 import { UptadePutUserDTO } from './dto/update-put-user.dto';
 import { UserService } from './user.service';
 import { UptadePatchUserDTO } from './dto/update-patch-user.dto';
+import { ParamId } from 'src/decorators/param-id.decorator';
 
 @Controller('users')
 export class UserController {
@@ -19,7 +20,8 @@ export class UserController {
   }
 
   @Get(':id')
-  async showById(@Param('id', ParseIntPipe) id) {
+  async showById(@ParamId() id: number) {
+    console.log({id})
     return this.userService.showById(id)
   }
 
